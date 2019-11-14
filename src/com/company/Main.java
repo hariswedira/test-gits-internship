@@ -97,6 +97,65 @@ public class Main {
 
     //TODO : nomor dua
     public static void inputTwo(){
+        int maksimum;
+        ArrayList<Integer> deret = new ArrayList<Integer>();
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        String jawab = "y";
+        while(jawab.equalsIgnoreCase("y")){
+            System.out.print("\nAngka : ");
+            int angka = in.nextInt();
+            deret.add(angka);
+            System.out.print("\nMasukan Lagi ? (y/n) : ");
+            jawab = in.next();
+        }
+        System.out.print("\nAngka inputan\t: ");
+        for (int i = 0; i < deret.size(); i++) {
+            if (deret.get(i) == deret.get(deret.size()-1)){
+                System.out.print(deret.get(i)+".");
+            }else {
+                System.out.print(deret.get(i)+", ");
+            }
+        }
 
+        maksimum = deret.get(0);
+        for(int i = 0; i < deret.size(); i++) {
+            if (deret.get(i) > maksimum){
+                maksimum = deret.get(i);
+            }
+        }
+
+
+        for (int i = 1; i <= maksimum ; i++) {
+            temp.add(i);
+        }
+
+        System.out.println();
+        for (int i = 0; i < temp.size() ; i++) {
+            for (int j = 0; j < deret.size(); j++) {
+                if (temp.get(i) == deret.get(j)){
+                    result.add(temp.get(i));
+                }
+            }
+        }
+
+        System.out.println();
+        for (int i = 0; i < temp.size() ; i++) {
+            for (int j = 0; j < result.size(); j++) {
+                if (temp.get(i) == result.get(j)){
+                    temp.remove(i);
+                }
+            }
+        }
+
+        for (int i = 0; i < temp.size() ; i++) {
+            if (temp.get(i) == temp.get(temp.size()-1)){
+                System.out.print("Angka yang tidak ada didalam deret\t: "+temp.get(i)+".");
+            }else {
+                System.out.print("Angka yang tidak ada didalam deret\t: "+temp.get(i)+", ");
+            }
+        }
+
+        System.out.println("\n");
     }
 }
