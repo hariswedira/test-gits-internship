@@ -27,6 +27,9 @@ public class Main {
                 case 2:
                     inputTwo();
                     break;
+                case 3:
+                    inputThree();
+                    break;
                 case 7:
                     System.exit(0);
                     break;
@@ -157,5 +160,52 @@ public class Main {
         }
 
         System.out.println("\n");
+    }
+
+    //TODO : nomor tiga
+    public static void inputThree(){
+        ArrayList<Integer> angka = new ArrayList<>();
+        ArrayList<Integer> jumlahArray = new ArrayList<>();
+        int temp = 0;
+        int maksimum, minimum;
+
+        System.out.print("\nJumlah angka\t: ");
+        int jml = in.nextInt();
+        for (int i = 0; i < jml; i++) {
+            System.out.print("\nAngka "+(i+1)+"\t: ");
+            int agk = in.nextInt();
+            angka.add(agk);
+        }
+
+        for (int i = 0; i < angka.size(); i++) {
+            int jumlah = 0;
+            if (temp == i){
+                for (int j = 0; j < angka.size(); j++) {
+                    jumlah += angka.get(j);
+                }
+                jumlah -= angka.get(i);
+                jumlahArray.add(jumlah);
+                temp++;
+            }
+        }
+
+        maksimum = jumlahArray.get(0);
+        for(int i = 0; i < jumlahArray.size(); i++) {
+            if (jumlahArray.get(i) > maksimum){
+                maksimum = jumlahArray.get(i);
+            }
+        }
+
+        minimum = jumlahArray.get(0);
+        for(int i = 0; i < jumlahArray.size(); i++) {
+            if (jumlahArray.get(i) < minimum){
+                minimum = jumlahArray.get(i);
+            }
+        }
+
+        System.out.print("\nMinumum\t\t: "+minimum);
+        System.out.print("\nMaksimum\t: "+maksimum);
+        System.out.println("\n");
+
     }
 }
