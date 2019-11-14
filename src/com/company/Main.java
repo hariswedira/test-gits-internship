@@ -17,6 +17,7 @@ public class Main {
             System.out.println("1. Soal Logic substring yang sama ditara dua string\n" +
                     "2. Soal Logic Menampilkan angka yang tidak ada pada deret(1...n)\n" +
                     "3. Min-max Sum\n" +
+                    "4. Check Duplicate\n" +
                     "7. Exit");
             System.out.print("\nPilih nomor\t: ");
             jawaban = in.nextInt();
@@ -29,6 +30,9 @@ public class Main {
                     break;
                 case 3:
                     inputThree();
+                    break;
+                case 4:
+                    inputFour();
                     break;
                 case 7:
                     System.exit(0);
@@ -104,14 +108,24 @@ public class Main {
         ArrayList<Integer> deret = new ArrayList<Integer>();
         ArrayList<Integer> temp = new ArrayList<Integer>();
         ArrayList<Integer> result = new ArrayList<Integer>();
-        String jawab = "y";
-        while(jawab.equalsIgnoreCase("y")){
-            System.out.print("\nAngka : ");
-            int angka = in.nextInt();
-            deret.add(angka);
-            System.out.print("\nMasukan Lagi ? (y/n) : ");
-            jawab = in.next();
+
+//        String jawab = "y";
+//        while(jawab.equalsIgnoreCase("y")){
+//            System.out.print("\nAngka : ");
+//            int angka = in.nextInt();
+//            deret.add(angka);
+//            System.out.print("\nMasukan Lagi ? (y/n) : ");
+//            jawab = in.next();
+//        }
+
+        System.out.print("\nJumlah angka\t: ");
+        int jml = in.nextInt();
+        for (int i = 0; i < jml; i++) {
+            System.out.print("\nAngka "+(i+1)+"\t: ");
+            int agk = in.nextInt();
+            deret.add(agk);
         }
+
         System.out.print("\nAngka inputan\t: ");
         for (int i = 0; i < deret.size(); i++) {
             if (deret.get(i) == deret.get(deret.size()-1)){
@@ -207,5 +221,35 @@ public class Main {
         System.out.print("\nMaksimum\t: "+maksimum);
         System.out.println("\n");
 
+    }
+
+    //TODO : nomor 4
+    private static void inputFour() {
+        ArrayList<Integer> angka = new ArrayList<>();
+        boolean sama = false;
+
+        System.out.print("\nJumlah angka\t: ");
+        int jml = in.nextInt();
+        for (int i = 0; i < jml; i++) {
+            System.out.print("\nAngka "+(i+1)+"\t: ");
+            int agk = in.nextInt();
+            angka.add(agk);
+        }
+
+        for (int i = 0; i < angka.size(); i++) {
+            for (int j = (i+1); j < angka.size(); j++) {
+                if (angka.get(i) == angka.get(j)) {
+                    sama = true;
+                }
+            }
+        }
+
+        if (sama == true){
+            System.out.println("True");
+        }else {
+            System.out.println("False");
+        }
+
+        System.out.println();
     }
 }
